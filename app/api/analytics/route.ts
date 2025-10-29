@@ -4,16 +4,6 @@ import { type NextRequest, NextResponse } from "next/server"
 const recentEvents = new Map<string, number>()
 const DEDUP_WINDOW = 1000 // 1 second
 
-// Clean up old events periodically
-setInterval(() => {
-  const now = Date.now()
-  for (const [key, timestamp] of recentEvents.entries()) {
-    if (now - timestamp > DEDUP_WINDOW) {
-      recentEvents.delete(key)
-    }
-  }
-}, 5000) // Clean every 5 seconds
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -39,7 +29,7 @@ export async function POST(request: NextRequest) {
 
     if (apiKey) {
       // Forward to PostHog
-      const response = await fetch(`${host}/capture/`, {
+      await fetch(`${host}/capture/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,20 +39,20 @@ export async function POST(request: NextRequest) {
           event,
           properties: {
             ...properties,
-            distinct_id,
-            timestamp,
+            distinct_id: distinct_id || "anonymous",
+            timestamp: timestamp || new Date().toISOString(),
           },
         }),
+      }).catch((error) => {
+        // Log error but don't fail the request
+        console.error("PostHog API error:", error)
       })
-
-      if (!response.ok) {
-        console.error("PostHog API error:", await response.text())
-      }
     }
 
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Analytics API error:", error)
-    return NextResponse.json({ error: "Failed to process analytics event" }, { status: 500 })
+    // Return success even on error to prevent client-side issues
+    return NextResponse.json({ success: true })
   }
 }

@@ -25,7 +25,7 @@ export const setDistinctId = (id: string): void => {
   try {
     localStorage.setItem("distinct_id", id)
   } catch (error) {
-    console.warn("Failed to set distinct_id:", error)
+    // Silently fail
   }
 }
 
@@ -36,7 +36,7 @@ export const clearDistinctId = (): void => {
   try {
     localStorage.removeItem("distinct_id")
   } catch (error) {
-    console.warn("Failed to clear distinct_id:", error)
+    // Silently fail
   }
 }
 
@@ -44,10 +44,27 @@ export const clearDistinctId = (): void => {
 export const isAnalyticsEnabled = (): boolean => {
   if (!isBrowser()) return false
 
-  // Use a flag we can check safely on client
   try {
     return window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1"
   } catch {
     return false
   }
+}
+
+// Simple analytics tracking function
+export const trackEvent = (eventName: string, properties: Record<string, any> = {}) => {
+  if (!isAnalyticsEnabled()) return
+
+  fetch("/api/analytics", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event: eventName,
+      properties,
+      distinct_id: getDistinctId(),
+      timestamp: new Date().toISOString(),
+    }),
+  }).catch(() => {
+    // Silently fail
+  })
 }

@@ -18,7 +18,8 @@
     "gsap": "^3.12.2",
     "lucide-react": "^0.454.0",
     "next": "14.0.3",
-    "posthog-js": "latest",
+    "next-themes": "latest",
+    "posthog-js": "^1.93.0",
     "react": "^18",
     "react-dom": "^18",
     "resend": "latest",
@@ -35,7 +36,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "postcss": "^8.5",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }
