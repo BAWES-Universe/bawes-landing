@@ -16,6 +16,7 @@ export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { trackEvent } = useAnalytics()
   const [isMounted, setIsMounted] = useState(false)
+  const [webglSupported, setWebglSupported] = useState(true)
 
   // Parallax effect
   const { scrollYProgress } = useScroll({
@@ -36,154 +37,179 @@ export default function Hero() {
     window.open("https://discord.gg/QnYt5AFGxS", "_blank")
   }
 
-  // WebGL effect
   useEffect(() => {
     if (!canvasRef.current) return
     setIsMounted(true)
 
-    const canvas = canvasRef.current
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      antialias: true,
-      alpha: true,
-    })
+    const testCanvas = document.createElement("canvas")
+    const gl = testCanvas.getContext("webgl") || testCanvas.getContext("experimental-webgl")
+    if (!gl) {
+      console.log("[v0] WebGL not supported, skipping particle effect")
+      setWebglSupported(false)
+      return
+    }
 
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    camera.position.z = 5
+    try {
+      const canvas = canvasRef.current
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance",
+      })
 
-    // Create a galaxy of particles
-    const particlesGeometry = new THREE.BufferGeometry()
-    const particlesCount = 5000
-    const posArray = new Float32Array(particlesCount * 3)
-    const colors = new Float32Array(particlesCount * 3)
+      const scene = new THREE.Scene()
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+      camera.position.z = 5
 
-    // Gold color: rgb(159, 126, 47)
-    const goldColor = new THREE.Color(0x9f7e2f)
-    // Red color: rgb(240, 62, 47)
-    const redColor = new THREE.Color(0xf03e2f)
-    // Orange color: rgb(247, 148, 29)
-    const orangeColor = new THREE.Color(0xf7941d)
+      // Create a galaxy of particles
+      const particlesGeometry = new THREE.BufferGeometry()
+      const particlesCount = 5000
+      const posArray = new Float32Array(particlesCount * 3)
+      const colors = new Float32Array(particlesCount * 3)
 
-    for (let i = 0; i < particlesCount * 3; i += 3) {
-      // Position
-      // Create a spiral galaxy shape
-      const angle = Math.random() * Math.PI * 2
-      const radius = Math.random() * 4 + 0.5
-      const spiralOffset = Math.random() * 0.5
+      // Gold color: rgb(159, 126, 47)
+      const goldColor = new THREE.Color(0x9f7e2f)
+      // Red color: rgb(240, 62, 47)
+      const redColor = new THREE.Color(0xf03e2f)
+      // Orange color: rgb(247, 148, 29)
+      const orangeColor = new THREE.Color(0xf7941d)
 
-      posArray[i] = Math.cos(angle) * radius + (Math.random() - 0.5) * spiralOffset
-      posArray[i + 1] = Math.sin(angle) * radius + (Math.random() - 0.5) * spiralOffset
-      posArray[i + 2] = (Math.random() - 0.5) * 2
+      for (let i = 0; i < particlesCount * 3; i += 3) {
+        // Position
+        // Create a spiral galaxy shape
+        const angle = Math.random() * Math.PI * 2
+        const radius = Math.random() * 4 + 0.5
+        const spiralOffset = Math.random() * 0.5
 
-      // Color - blend between gold, red, and orange
-      const colorChoice = Math.random()
-      let color
+        posArray[i] = Math.cos(angle) * radius + (Math.random() - 0.5) * spiralOffset
+        posArray[i + 1] = Math.sin(angle) * radius + (Math.random() - 0.5) * spiralOffset
+        posArray[i + 2] = (Math.random() - 0.5) * 2
 
-      if (colorChoice < 0.33) {
-        color = goldColor
-      } else if (colorChoice < 0.66) {
-        color = redColor
-      } else {
-        color = orangeColor
+        // Color - blend between gold, red, and orange
+        const colorChoice = Math.random()
+        let color
+
+        if (colorChoice < 0.33) {
+          color = goldColor
+        } else if (colorChoice < 0.66) {
+          color = redColor
+        } else {
+          color = orangeColor
+        }
+
+        // Add some randomness to the colors
+        colors[i] = color.r + (Math.random() - 0.5) * 0.1
+        colors[i + 1] = color.g + (Math.random() - 0.5) * 0.1
+        colors[i + 2] = color.b + (Math.random() - 0.5) * 0.1
       }
 
-      // Add some randomness to the colors
-      colors[i] = color.r + (Math.random() - 0.5) * 0.1
-      colors[i + 1] = color.g + (Math.random() - 0.5) * 0.1
-      colors[i + 2] = color.b + (Math.random() - 0.5) * 0.1
-    }
+      particlesGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3))
+      particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3))
 
-    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3))
-    particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3))
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.02,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true,
+      })
 
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.8,
-      sizeAttenuation: true,
-    })
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
+      scene.add(particlesMesh)
 
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
-    scene.add(particlesMesh)
+      // Add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+      scene.add(ambientLight)
 
-    // Add ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-    scene.add(ambientLight)
+      // Add directional light
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+      directionalLight.position.set(1, 1, 1)
+      scene.add(directionalLight)
 
-    // Add directional light
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
-    directionalLight.position.set(1, 1, 1)
-    scene.add(directionalLight)
+      // Handle resize
+      const handleResize = () => {
+        const width = window.innerWidth
+        const height = window.innerHeight
+        renderer.setSize(width, height)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+        camera.aspect = width / height
+        camera.updateProjectionMatrix()
+      }
 
-    // Handle resize
-    const handleResize = () => {
-      const width = window.innerWidth
-      const height = window.innerHeight
-      renderer.setSize(width, height)
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-      camera.aspect = width / height
-      camera.updateProjectionMatrix()
-    }
+      handleResize()
+      window.addEventListener("resize", handleResize)
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
+      // Animation
+      let mouseX = 0
+      let mouseY = 0
+      let targetX = 0
+      let targetY = 0
+      const windowHalfX = window.innerWidth / 2
+      const windowHalfY = window.innerHeight / 2
 
-    // Animation
-    let mouseX = 0
-    let mouseY = 0
-    let targetX = 0
-    let targetY = 0
-    const windowHalfX = window.innerWidth / 2
-    const windowHalfY = window.innerHeight / 2
+      const handleMouseMove = (event: MouseEvent) => {
+        mouseX = (event.clientX - windowHalfX) / 100
+        mouseY = (event.clientY - windowHalfY) / 100
+      }
 
-    const handleMouseMove = (event: MouseEvent) => {
-      mouseX = (event.clientX - windowHalfX) / 100
-      mouseY = (event.clientY - windowHalfY) / 100
-    }
+      document.addEventListener("mousemove", handleMouseMove)
 
-    document.addEventListener("mousemove", handleMouseMove)
+      const clock = new THREE.Clock()
+      let animationId: number
 
-    const clock = new THREE.Clock()
+      const animate = () => {
+        try {
+          const elapsedTime = clock.getElapsedTime()
 
-    const animate = () => {
-      const elapsedTime = clock.getElapsedTime()
+          // Smooth follow for mouse movement
+          targetX = mouseX * 0.3
+          targetY = mouseY * 0.3
 
-      // Smooth follow for mouse movement
-      targetX = mouseX * 0.3
-      targetY = mouseY * 0.3
+          // Rotate the entire particle system
+          particlesMesh.rotation.y = elapsedTime * 0.05 + targetX
+          particlesMesh.rotation.x = targetY
 
-      // Rotate the entire particle system
-      particlesMesh.rotation.y = elapsedTime * 0.05 + targetX
-      particlesMesh.rotation.x = targetY
+          // Add a subtle pulsing effect
+          particlesMesh.scale.set(
+            1 + Math.sin(elapsedTime * 0.5) * 0.05,
+            1 + Math.sin(elapsedTime * 0.5) * 0.05,
+            1 + Math.sin(elapsedTime * 0.5) * 0.05,
+          )
 
-      // Add a subtle pulsing effect
-      particlesMesh.scale.set(
-        1 + Math.sin(elapsedTime * 0.5) * 0.05,
-        1 + Math.sin(elapsedTime * 0.5) * 0.05,
-        1 + Math.sin(elapsedTime * 0.5) * 0.05,
-      )
+          renderer.render(scene, camera)
+          animationId = requestAnimationFrame(animate)
+        } catch (error) {
+          console.log("[v0] WebGL animation error, stopping animation")
+          setWebglSupported(false)
+        }
+      }
 
-      renderer.render(scene, camera)
-      requestAnimationFrame(animate)
-    }
+      animate()
 
-    animate()
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-      document.removeEventListener("mousemove", handleMouseMove)
-      renderer.dispose()
-      particlesGeometry.dispose()
-      particlesMaterial.dispose()
+      return () => {
+        if (animationId) {
+          cancelAnimationFrame(animationId)
+        }
+        window.removeEventListener("resize", handleResize)
+        document.removeEventListener("mousemove", handleMouseMove)
+        renderer.dispose()
+        particlesGeometry.dispose()
+        particlesMaterial.dispose()
+      }
+    } catch (error) {
+      console.log("[v0] WebGL initialization failed, disabling particle effect")
+      setWebglSupported(false)
     }
   }, [isMounted])
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* WebGL Background */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-10" />
+      {webglSupported && <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-10" />}
+
+      {!webglSupported && (
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-bawes-brown/20 to-black -z-10" />
+      )}
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/80 -z-10" />
