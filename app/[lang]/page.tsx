@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Navbar from "@/components/navbar"
 import Hero from "@/components/sections/hero"
 import WhatIs from "@/components/sections/what-is"
 import UniverseComponents from "@/components/sections/universe-components"
@@ -7,7 +6,6 @@ import Manifesto from "@/components/sections/manifesto"
 import EmptySeat from "@/components/sections/empty-seat"
 import TargetUsers from "@/components/sections/target-users"
 import FinalCta from "@/components/sections/final-cta"
-import Footer from "@/components/footer"
 import { translations } from "@/lib/translations"
 import Cursor from "@/components/ui/cursor"
 
@@ -56,7 +54,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function Home({ params }: Props) {
   return (
     <main className="bg-black">
-      <Navbar />
       <Hero />
       <WhatIs />
       <UniverseComponents />
@@ -64,7 +61,6 @@ export default function Home({ params }: Props) {
       <EmptySeat />
       <TargetUsers />
       <FinalCta />
-      <Footer />
       <Cursor />
     </main>
   )
