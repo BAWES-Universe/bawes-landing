@@ -1,72 +1,80 @@
 export const translations = {
   en: {
     // Meta
-    metaDescription: "We are not building an app. We are building a universe.",
+    metaDescription:
+      "BAWES Universe — a metaverse platform with AI-powered bots, instant student hiring, and commerce tools. One ecosystem. Enter the Universe.",
 
     // Navbar
     whatIsUniverse: "What Is Universe",
     universeComponents: "Universe Components",
     whoItsFor: "Who It's For",
     enterUniverse: "Enter the Universe",
-    joinEcosystem: "Join the Ecosystem",
+    joinEcosystem: "Join Discord",
 
     // Hero
     heroTitle: "Build Your Own Universe.",
-    heroSubtitle: "We are not building an app. We are building a universe.",
+    heroSubtitle: "A metaverse platform where AI bots, real teams, and powerful tools work as one.",
     heroDescription:
-      "A fully integrated, people-first universe designed to help you think, act, build, and grow — faster, smarter, and with less friction.",
+      "Walk into your virtual world. Your AI bot greets visitors, remembers context, and speaks your language — while StudentHub fills your team and Plugn runs your store. Everything connected. Nothing siloed.",
 
     // What Is
     whatIsTitle: "What Is Universe?",
     whatIsDescription:
-      "We don't just support execution. We are execution — deployed on-demand, backed by real humans, and powered by smart systems.",
-    useItTo: "Use it to:",
-    feature1: "Spin up new organizations with ready-to-use components",
-    feature2: "Track and boost execution speed (we call it velocity)",
-    feature3: "Connect to hiring, e-commerce, and automation tools instantly",
-    feature4: "Visualize your people, processes, and outcomes—live",
+      "BAWES Universe is a live, operating metaverse platform — not a concept. Real AI bots walk your worlds. Real teams get hired through StudentHub. Real stores launch on Plugn. The Avatar Platform lets you control every character, staff guide, and NPC across your universe from one admin panel.",
+    useItTo: "What you can do right now:",
+    feature1: "Launch a virtual world with AI bots that have memory, personality, and multi-language support",
+    feature2: "Hire students and junior talent on-demand through StudentHub — like cloud resources for your team",
+    feature3: "Open your store in minutes with Plugn — inventory, payments, and fulfillment, no developers needed",
+    feature4: "Control every avatar, NPC, staff character, and bot appearance from a single admin dashboard",
 
     // Universe Components
     componentsTitle: "Universe Components",
     bawesIntelligenceTitle: "BAWES Intelligence",
-    bawesIntelligenceDesc: "Type a goal. Get a plan. Let AI turn your thoughts into proposals and action steps.",
+    bawesIntelligenceDesc:
+      "Type a goal. Get a structured plan. Let AI turn your thoughts into proposals, action steps, and delegatable tasks — powered by OpenAI, Deepseek, or your own local model.",
     studentHubTitle: "StudentHub",
-    studentHubDesc: "Hire students like cloud resources—instantly, with full tracking and support.",
+    studentHubDesc:
+      "Hire students and junior talent like cloud resources — instantly available, fully tracked. Built-in job search automation and a sales Kanban so your pipeline never stalls.",
     plugnTitle: "Plugn",
-    plugnDesc: "Launch your store in minutes. Connect inventory, payments, and fulfillment—no devs needed.",
+    plugnDesc:
+      "Launch your store in minutes. Inventory, payments, and fulfillment connected out of the box — no devs needed. Already live and processing orders.",
+    universeWorldTitle: "Universe Worlds (WorkAdventure)",
+    universeWorldDesc:
+      "Walk into your own virtual world. AI bots with persistent memory roam your spaces, greet visitors, answer questions, and stay in character — powered by any AI provider you choose.",
     walletTitle: "Universe Wallet",
-    walletDesc: "Manage your digital assets and connect with the People Directory.",
+    walletDesc: "Manage your digital assets and connect with the People Directory across the ecosystem.",
     cryptoTitle: "Crypto Ecosystem",
-    cryptoDesc: "Payment infrastructure for seamless transactions within the Universe.",
+    cryptoDesc: "Native payment infrastructure for seamless value transfer within the Universe.",
     sandboxTitle: "BAWES Sandbox",
-    sandboxDesc: "Experiment and build in a safe, controlled environment.",
+    sandboxDesc: "A safe, isolated environment to experiment, prototype, and validate ideas before going live.",
     developersTitle: "Free-trade Zone",
-    developersDesc: "A dedicated space for developers to create and innovate.",
+    developersDesc: "A dedicated space for developers to build, publish, and monetize inside the Universe.",
     portalsTitle: "Portals",
-    portalsDesc: "Connect different parts of your universe seamlessly.",
+    portalsDesc: "Connect different worlds and products within your universe seamlessly.",
     foodCapitalTitle: "Food Capital",
     foodCapitalDesc: "Revolutionizing the food industry through innovative solutions.",
     animalHealthcareTitle: "Animal Healthcare",
     animalHealthcareDesc: "Gamified healthcare solutions for animal wellness.",
     tamrTitle: "Tamr",
-    tamrDesc: "On-demand recruitment that matches the right person to the right place at the right time.",
+    tamrDesc:
+      "On-demand recruitment that matches the right person to the right role at the right time — with zero manual sourcing.",
     thoughtProcessorTitle: "Thought Processor",
     thoughtProcessorDesc:
-      "The Native OS for Thinking, Processing, and Action. Capture, organize, prioritize, and delegate your ideas.",
+      "The native OS for thinking, processing, and acting. Capture, organize, prioritize, and delegate your ideas without losing any of them.",
     tribeTitle: "Tribe",
     tribeDesc:
-      "Find Your Tribe. Build Your Network. Tribe uses AI to connect you with the perfect student clubs based on your interests, goals, and schedule.",
+      "Find your people. Tribe uses AI to connect you with the right student clubs, communities, and collaborators based on your goals and schedule.",
     visitWebsite: "Visit Website",
     joinDiscord: "Join Discord",
     comingSoon: "Coming Soon",
 
     // Target Users
     whoItsForTitle: "Who It's For",
-    user1: "Startup builders",
-    user2: "Fast-moving teams",
-    user3: "Gov orgs & operators",
-    user4: "Students with ambition",
-    user5: "Anyone who wants to build smarter and faster",
+    user1: "Founders who want to move fast — build, hire, and launch without a full dev team",
+    user2: "Teams that need execution now — not next quarter",
+    user3: "Gov orgs & operators managing people, processes, and programs at scale",
+    user4: "Ambitious students who want real work, real experience, and real connections",
+    user5: "Anyone building a brand, a community, or a business — and wants it all connected",
 
     // Manifesto
     manifestoTitle: "The BAWES Universe Manifesto",
@@ -87,9 +95,10 @@ export const translations = {
     learnMoreEmptySeat: "Learn More About The Empty Seat",
 
     // Final CTA
-    finalCtaTitle: "You have ideas. Universe helps you execute them.",
-    finalCtaDesc: "Join thousands of builders who are creating the future with Universe.",
-    getStarted: "Enter the Universe",
+    finalCtaTitle: "Your universe is waiting. Step in.",
+    finalCtaDesc:
+      "Early access is open. Join our Discord to enter the Universe, follow what we're building, and claim your space before the next wave.",
+    getStarted: "Join Discord — Enter the Universe",
 
     // Join Page
     joinTitle: "Join the BAWES Ecosystem",
@@ -109,10 +118,12 @@ export const translations = {
     formSubmit: "Submit Request",
     formSubmitting: "Submitting...",
     formSuccess: "Your request has been submitted!",
-    formSuccessMessage: "Thank you for your interest in joining the BAWES ecosystem. We'll be in touch with you soon.",
+    formSuccessMessage:
+      "Thank you for your interest in joining the BAWES ecosystem. We'll be in touch with you soon.",
     formSubmitAnother: "Submit Another Request",
     formError: "There was an error submitting the form. Please try again.",
-    formErrorEmail: "There was an error sending your request. Please try again or contact us directly.",
+    formErrorEmail:
+      "There was an error sending your request. Please try again or contact us directly.",
     formSuccessEmail: "Your request has been sent successfully! We'll be in touch soon.",
     backToHome: "Back to Home",
 
@@ -133,71 +144,80 @@ export const translations = {
   },
   ar: {
     // Meta
-    metaDescription: "نحن لا نبني تطبيقًا. نحن نبني كونًا.",
+    metaDescription:
+      "BAWES Universe — منصة ميتافيرس بروبوتات ذكاء اصطناعي، توظيف فوري للطلاب، وأدوات تجارة متكاملة. نظام بيئي واحد. ادخل الكون.",
 
     // Navbar
     whatIsUniverse: "ما هو الكون",
     universeComponents: "مكونات الكون",
     whoItsFor: "لمن هو مخصص",
     enterUniverse: "ادخل الكون",
-    joinEcosystem: "انضم إلى منظومة BAWES",
+    joinEcosystem: "انضم إلى Discord",
 
     // Hero
     heroTitle: "ابني كونك الخاص.",
-    heroSubtitle: "نحن لا نبني تطبيقًا. نحن نبني كونًا.",
+    heroSubtitle: "منصة ميتافيرس حيث تعمل روبوتات الذكاء الاصطناعي والفرق الحقيقية والأدوات القوية معًا.",
     heroDescription:
-      "كون متكامل بالكامل، يركز على الناس، مصمم لمساعدتك على التفكير والعمل والبناء والنمو - بشكل أسرع وأذكى وبأقل قدر من الاحتكاك.",
+      "ادخل عالمك الافتراضي. روبوت الذكاء الاصطناعي يرحب بزوارك، يتذكر السياق، ويتحدث لغتهم — بينما StudentHub يملأ فريقك وPlugn يدير متجرك. كل شيء متصل. لا شيء معزول.",
 
     // What Is
     whatIsTitle: "ما هو الكون؟",
     whatIsDescription:
-      "نحن لا ندعم التنفيذ فقط. نحن التنفيذ - يتم نشره عند الطلب، مدعومًا بالبشر الحقيقيين، ومدعومًا بأنظمة ذكية.",
-    useItTo: "استخدمه في:",
-    feature1: "قم بتشغيل مؤسسات جديدة بمكونات جاهزة للاستخدام",
-    feature2: "تتبع وزيادة سرعة التنفيذ (نحن نسميها السرعة)",
-    feature3: "اتصل بأدوات التوظيف والتجارة الإلكترونية والأتمتة على الفور",
-    feature4: "تصور الأشخاص والعمليات والنتائج الخاصة بك - مباشرة",
+      "BAWES Universe منصة ميتافيرس حقيقية وقيد التشغيل — وليست مجرد فكرة. روبوتات ذكاء اصطناعي حقيقية تجوب عوالمك. فرق حقيقية يتم توظيفها عبر StudentHub. متاجر حقيقية تُطلق على Plugn. منصة الأفاتار تتيح لك التحكم في كل شخصية، ودليل طاقم عمل، وشخصية NPC عبر لوحة إدارة واحدة.",
+    useItTo: "ما يمكنك فعله الآن:",
+    feature1: "أطلق عالمًا افتراضيًا مع روبوتات ذكاء اصطناعي لديها ذاكرة وشخصية ودعم متعدد اللغات",
+    feature2: "وظّف الطلاب والمواهب الشابة عند الطلب عبر StudentHub — مثل موارد سحابية لفريقك",
+    feature3: "افتح متجرك في دقائق مع Plugn — المخزون والمدفوعات والتنفيذ جاهزة، دون الحاجة لمطورين",
+    feature4: "تحكم في كل أفاتار، NPC، وشخصية طاقم عمل من لوحة إدارة واحدة",
 
     // Universe Components
     componentsTitle: "مكونات الكون",
     bawesIntelligenceTitle: "ذكاء BAWES",
-    bawesIntelligenceDesc: "اكتب هدفًا. احصل على خطة. دع الذكاء الاصطناعي يحول أفكارك إلى مقترحات وخطوات عمل.",
-    studentHubTitle: "مركز الطلاب",
-    studentHubDesc: "وظف الطلاب كموارد سحابية - على الفور ، مع التتبع والدعم الكاملين.",
+    bawesIntelligenceDesc:
+      "اكتب هدفًا. احصل على خطة منظمة. دع الذكاء الاصطناعي يحول أفكارك إلى مقترحات وخطوات عمل وتفويضات قابلة للتنفيذ.",
+    studentHubTitle: "StudentHub",
+    studentHubDesc:
+      "وظّف الطلاب والمواهب الشابة كموارد سحابية — متاحون فورًا، يُتتبعون بالكامل. أتمتة بحث وظيفي مدمجة وكانبان مبيعات حتى لا يتوقف خط أنابيبك أبدًا.",
     plugnTitle: "Plugn",
-    plugnDesc: "أطلق متجرك في دقائق. قم بتوصيل المخزون والمدفوعات والتنفيذ - لا حاجة للمطورين.",
+    plugnDesc:
+      "أطلق متجرك في دقائق. المخزون والمدفوعات والتنفيذ متصلة جاهزة — دون الحاجة لمطورين. قيد التشغيل ويعالج الطلبات الآن.",
+    universeWorldTitle: "عوالم الكون (WorkAdventure)",
+    universeWorldDesc:
+      "ادخل عالمك الافتراضي الخاص. روبوتات ذكاء اصطناعي بذاكرة دائمة تجوب مساحاتك، ترحب بالزوار، تجيب على الأسئلة، وتحافظ على شخصيتها — مدعومة بأي مزود ذكاء اصطناعي تختاره.",
     walletTitle: "محفظة الكون",
-    walletDesc: "إدارة أصولك الرقمية والتواصل مع دليل الأشخاص.",
+    walletDesc: "إدارة أصولك الرقمية والتواصل مع دليل الأشخاص عبر النظام البيئي.",
     cryptoTitle: "نظام العملات المشفرة",
-    cryptoDesc: "البنية التحتية للدفع للمعاملات السلسة داخل الكون.",
+    cryptoDesc: "بنية تحتية للدفع لنقل القيمة بسلاسة داخل الكون.",
     sandboxTitle: "صندوق رمل BAWES",
-    sandboxDesc: "تجربة وبناء في بيئة آمنة ومتحكم فيها.",
+    sandboxDesc: "بيئة آمنة ومعزولة لتجربة الأفكار ونمذجتها والتحقق منها قبل الإطلاق.",
     developersTitle: "منطقة التجارة الحرة",
-    developersDesc: "مساحة مخصصة للمطورين للإبداع والابتكار.",
+    developersDesc: "مساحة مخصصة للمطورين للبناء والنشر والتحقيق داخل الكون.",
     portalsTitle: "البوابات",
-    portalsDesc: "ربط أجزاء مختلفة من الكون الخاص بك بسلاسة.",
+    portalsDesc: "ربط عوالم ومنتجات مختلفة داخل كونك بسلاسة.",
     foodCapitalTitle: "رأس المال الغذائي",
     foodCapitalDesc: "ثورة في صناعة الأغذية من خلال حلول مبتكرة.",
     animalHealthcareTitle: "الرعاية الصحية للحيوانات",
     animalHealthcareDesc: "حلول الرعاية الصحية المبنية على الألعاب لصحة الحيوان.",
     tamrTitle: "تمر",
-    tamrDesc: "التوظيف عند الطلب الذي يطابق الشخص المناسب في المكان المناسب في الوقت المناسب.",
+    tamrDesc:
+      "التوظيف عند الطلب الذي يطابق الشخص المناسب في الدور المناسب في الوقت المناسب — دون أي بحث يدوي.",
     thoughtProcessorTitle: "معالج الأفكار",
-    thoughtProcessorDesc: "نظام التشغيل الأصلي للتفكير والمعالجة والعمل. التقاط وتنظيم وترتيب الأولويات وتفويض أفكارك.",
+    thoughtProcessorDesc:
+      "نظام التشغيل الأصلي للتفكير والمعالجة والتصرف. التقط وتنظيم وترتيب الأولويات وتفويض أفكارك دون فقدان أي منها.",
     tribeTitle: "قبيلة",
     tribeDesc:
-      "ابحث عن قبيلتك. بناء شبكتك. تستخدم القبيلة الذكاء الاصطناعي لربطك بالأندية الطلابية المثالية بناءً على اهتماماتك وأهدافك وجدولك الزمني.",
+      "ابحث عن أشخاصك. تستخدم قبيلة الذكاء الاصطناعي لربطك بالأندية والمجتمعات والمتعاونين المناسبين بناءً على أهدافك وجدولك.",
     visitWebsite: "زوروا الموقع",
     joinDiscord: "انضم إلى Discord",
     comingSoon: "قريبًا",
 
     // Target Users
     whoItsForTitle: "لمن هو مخصص",
-    user1: "بناة الشركات الناشئة",
-    user2: "فرق سريعة الحركة",
-    user3: "المنظمات والمشغلين الحكوميين",
-    user4: "الطلاب الطموحون",
-    user5: "أي شخص يريد البناء بشكل أكثر ذكاءً وأسرع",
+    user1: "المؤسسون الذين يريدون التحرك بسرعة — البناء والتوظيف والإطلاق دون فريق تطوير كامل",
+    user2: "الفرق التي تحتاج إلى تنفيذ الآن — وليس الربع القادم",
+    user3: "المنظمات والمشغلون الحكوميون الذين يديرون أشخاصًا وعمليات وبرامج على نطاق واسع",
+    user4: "الطلاب الطموحون الذين يريدون عملًا حقيقيًا وخبرة حقيقية واتصالات حقيقية",
+    user5: "أي شخص يبني علامة تجارية أو مجتمعًا أو عملًا تجاريًا — ويريد كل شيء متصلًا",
 
     // Manifesto
     manifestoTitle: "بيان كون BAWES",
@@ -206,20 +226,21 @@ export const translations = {
     operatingPrinciple: "مبدأ التشغيل الخاص بنا",
     coreSectors: "القطاعات الأساسية لكون BAWES",
     noDelays: "لا تأخير. لا بحث لا نهاية له. لا عدم تطابق.",
-    instantAction: "نحن نحول الأفكار إلى إجراءات - على الفور.",
+    instantAction: "نحن نحول الأفكار إلى إجراءات — على الفور.",
 
     // Empty Seat
     emptySeatTitle: "المقعد الفارغ",
     emptySeatDesc: "قرار رمزي وهيكلي داخل كون BAWES.",
     emptySeatDefinition: "لا يملك أي فرد العرش. لا أحد هو الحاكم الدائم. كل السلطة مستعارة، وليست مملوكة.",
     emptySeatPurpose:
-      "بينما قد يكون هناك مؤسس أو قائد مؤقت يوجه النظام، يمثل المقعد الفارغ الاعتقاد بأنه لا ينبغي أن يكون أي شخص في مركز العالم - بل الأفكار والهيكل والغرض.",
+      "بينما قد يكون هناك مؤسس أو قائد مؤقت يوجه النظام، يمثل المقعد الفارغ الاعتقاد بأنه لا ينبغي أن يكون أي شخص في مركز العالم — بل الأفكار والهيكل والغرض.",
     learnMoreEmptySeat: "تعرف على المزيد حول المقعد الفارغ",
 
     // Final CTA
-    finalCtaTitle: "لديك أفكار. يساعدك Universe على تنفيذها.",
-    finalCtaDesc: "انضم إلى آلاف البناة الذين يصنعون المستقبل مع Universe.",
-    getStarted: "ادخل الكون",
+    finalCtaTitle: "كونك ينتظر. ادخل الآن.",
+    finalCtaDesc:
+      "الوصول المبكر مفتوح. انضم إلى Discord لدخول الكون، ومتابعة ما نبنيه، والمطالبة بمكانك قبل الموجة القادمة.",
+    getStarted: "انضم إلى Discord — ادخل الكون",
 
     // Join Page
     joinTitle: "انضم إلى منظومة BAWES",
